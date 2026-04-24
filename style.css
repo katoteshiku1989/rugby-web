@@ -15,23 +15,35 @@ body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a
 .logo span { color: var(--neon-blue); }
 .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
 .nav-links a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+
+/* LANGUAGE SELECTOR */
+.lang-select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-family: 'Orbitron';
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+}
+.lang-select option { background: var(--main-blue); color: #fff; }
+
 .btn-ticket { background: var(--gold); color: #000 !important; padding: 5px 15px; border-radius: 3px; }
 
-/* HERO SECTION - ТВОЙ ФОН */
+/* HERO - ЧИСТЫЙ ВИД БЕЗ КРАСНОГО СКАНЕРА */
 .hero-tactical {
     height: 75vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('./rugby-action-bg.png') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('./rugby-action-bg.png') center/cover no-repeat;
     position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
     border-bottom: 2px solid var(--neon-blue);
 }
-.hero-overlay-text { text-align: center; color: #fff; z-index: 10; text-shadow: 0 4px 15px rgba(0,0,0,1); }
-.hero-overlay-text h1 { font-family: 'Orbitron'; font-size: clamp(1.5rem, 5vw, 3.5rem); letter-spacing: 3px; margin-bottom: 10px; }
+.hero-overlay-text { text-align: center; color: #fff; z-index: 10; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
+.hero-overlay-text h1 { font-family: 'Orbitron'; font-size: clamp(1.5rem, 5vw, 3.5rem); letter-spacing: 3px; }
 .gold { color: var(--gold); }
-.live-indicator { background: #ff0000; padding: 3px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 3px; margin-bottom: 15px; display: inline-block; animation: pulse 2s infinite; }
 
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-
-/* SCANNER UI */
+/* SCANNER UI - ЭФФЕКТЫ ПРИ НАВЕДЕНИИ ОСТАЛИСЬ */
 #player-scanner-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
 .player-target { position: absolute; border: 1px solid transparent; pointer-events: auto; }
 .player-target:hover { border-color: var(--neon-blue); background: rgba(0, 242, 255, 0.1); }
@@ -48,38 +60,29 @@ body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a
 .bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
 .br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
-/* CONTENT PORTAL */
+/* ПОРТАЛ */
 .content-portal { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
 .portal-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
 
-.news-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-.news-card:hover { transform: translateY(-5px); }
+.news-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .news-img { height: 350px; background-size: cover; background-position: center; }
 .news-info { padding: 30px; }
-.category { color: #007bff; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
 .read-more { display: inline-block; margin-top: 20px; color: var(--main-blue); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--gold); }
 
 .side-bar { background: #fff; padding: 30px; border-radius: 8px; border-top: 6px solid var(--main-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.side-title { margin-bottom: 25px; font-family: 'Orbitron'; font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-.match-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-weight: 700; font-size: 0.9rem; }
+.match-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-weight: 700; }
 .score { background: var(--main-blue); color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.8rem; }
-.all-results { display: block; text-align: center; margin-top: 20px; color: #888; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
 
-/* INFO BOXES */
 .info-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
 .info-box { background: #fff; padding: 40px 30px; text-align: center; border: 1px solid #eee; border-radius: 8px; transition: 0.4s; }
-.info-box:hover { border-color: var(--neon-blue); box-shadow: 0 15px 40px rgba(0,242,255,0.1); transform: translateY(-10px); }
-.box-icon { font-size: 3rem; margin-bottom: 20px; }
-.info-box h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.2rem; }
-.info-box p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+.info-box:hover { border-color: var(--neon-blue); transform: translateY(-10px); }
 .btn-outline { margin-top: 25px; background: none; border: 2px solid var(--main-blue); padding: 10px 25px; cursor: pointer; font-weight: bold; transition: 0.3s; border-radius: 4px; }
 .btn-outline:hover { background: var(--main-blue); color: #fff; }
 
-/* FOOTER */
 .footer { background: var(--main-blue); color: rgba(255,255,255,0.6); text-align: center; padding: 40px; margin-top: 80px; font-size: 0.8rem; }
 
-/* ADAPTIVITY */
 @media (max-width: 992px) {
     .portal-grid { grid-template-columns: 1fr; }
-    .hero-overlay-text h1 { font-size: 2.5rem; }
+    .nav-links { gap: 10px; }
+    .main-header { padding: 15px 20px; }
 }

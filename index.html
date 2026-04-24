@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKR Rugby | Tactical Portal</title>
+    <title>UKR Rugby | Global Portal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -18,6 +18,15 @@
                     <li><a href="#">ТУРНІРИ</a></li>
                     <li><a href="#">ЗБІРНА</a></li>
                     <li><a href="#">ІСТОРІЯ</a></li>
+                    <li class="lang-wrapper">
+                        <select class="lang-select">
+                            <option value="uk">UA</option>
+                            <option value="en">EN</option>
+                            <option value="it">IT</option>
+                            <option value="es">ES</option>
+                            <option value="fr">FR</option>
+                        </select>
+                    </li>
                     <li><a href="#" class="btn-ticket">КВИТКИ</a></li>
                 </ul>
             </nav>
@@ -27,7 +36,6 @@
     <section class="hero-tactical">
         <div id="player-scanner-overlay"></div>
         <div class="hero-overlay-text">
-            <span class="live-indicator">TACTICAL SCANNER v1.0</span>
             <h1>FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY</h1>
             <p>Система аналізу в реальному часі та глобальна база даних.</p>
         </div>
@@ -63,19 +71,16 @@
             <div class="info-box">
                 <div class="box-icon">🏛️</div>
                 <h3>ФЕДЕРАЦІЯ</h3>
-                <p>Президенти федерації та стратегічні плани розвитку до 2030 року.</p>
                 <button class="btn-outline">ПЕРЕГЛЯНУТИ</button>
             </div>
             <div class="info-box">
                 <div class="box-icon">🏆</div>
                 <h3>КУБКИ ТА ЧМ</h3>
-                <p>Історія Чемпіонатів Світу та шлях української збірної в кубках.</p>
                 <button class="btn-outline">АРХІВ ТУРНІРІВ</button>
             </div>
             <div class="info-box">
                 <div class="box-icon">📖</div>
                 <h3>ІСТОРІЯ РЕГБІ</h3>
-                <p>Від появи першого м'яча до епохи високотехнологічного спорту.</p>
                 <button class="btn-outline">ЧИТАТИ ІСТОРІЮ</button>
             </div>
         </div>
@@ -105,11 +110,4 @@
                     <div class="corner tl"></div><div class="corner tr"></div>
                     <div class="corner bl"></div><div class="corner br"></div>
                 `;
-                overlay.appendChild(zone);
-            });
-        }
-        initScanner();
-        window.addEventListener('resize', initScanner);
-    </script>
-</body>
-</html>
+                overlay
