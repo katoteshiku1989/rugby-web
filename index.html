@@ -15,7 +15,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#news">НОВИНИ</a></li>
-                    <li><a href="#federation">ФЕДЕРАЦІЯ</a></li>
+                    <li><a href="#federation">КЕРІВНИЦТВО</a></li>
                     <li><a href="#history">ІСТОРІЯ</a></li>
                     <li class="lang-wrapper">
                         <select class="lang-select" id="langSelector" onchange="changeLanguage()">
@@ -67,64 +67,30 @@
         <section id="federation" class="info-sections">
             <div class="info-box">
                 <div class="box-icon">🏛️</div>
-                <h3>ФЕДЕРАЦІЯ (ФРУ)</h3>
-                <p>Заснована у 1991. Президенти: Г. Корольов, О. Грабазєй, Г. Джангирян, В. Бабич, Є. Баженков.</p>
+                <h3>НАЦІОНАЛЬНЕ КЕРІВНИЦТВО</h3>
+                <p><b>УАР:</b> Президент Роман Бихов. Почесний президент Кирило Буданов.</p>
+                <p><b>ФРУ:</b> Президент Євген Баженков.</p>
                 <button class="btn-outline">СТРАТЕГІЯ 2030</button>
             </div>
-            <div class="info-box">
-                <div class="box-icon">🏆</div>
-                <h3>ТУРНІРИ ТА КУБКИ</h3>
-                <p>Збірна України у Trophy Division. Історія виступів на Чемпіонатах Європи та світу.</p>
-                <button class="btn-outline">АРХІВ МАТЧІВ</button>
+            
+            <div class="info-box" style="text-align: left;">
+                <div class="box-icon" style="text-align: center;">🗺️</div>
+                <h3 style="text-align: center;">РЕГІОНАЛЬНІ ЛІДЕРИ</h3>
+                <ul style="list-style: none; font-size: 0.85rem; color: #666; line-height: 1.6; margin-top: 15px;">
+                    <li>🏙️ <b>Київ (Місто):</b> Олександр Потапенко</li>
+                    <li>🗺️ <b>Київська обл.:</b> Максим Бобров</li>
+                    <li>⚓ <b>Одеса:</b> Олег Етнарович</li>
+                    <li>🚜 <b>Харків:</b> Ігор Панін</li>
+                    <li>🦁 <b>Львів:</b> Петро Адамик</li>
+                    <li>🏰 <b>Хмельницький:</b> Олег Плахотнюк</li>
+                </ul>
+                <div style="text-align: center;">
+                    <button class="btn-outline">СТРУКТУРА</button>
+                </div>
             </div>
+
             <div id="history" class="info-box">
                 <div class="box-icon">📖</div>
                 <h3>ІСТОРІЯ РЕГБІ</h3>
                 <p>З 1963 року. Перші команди в Києві, Дніпрі та Одесі. Шлях від аматорів до професіоналів.</p>
-                <button class="btn-outline">ДІЗНАТИСЬ БІЛЬШЕ</button>
-            </div>
-        </section>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2026 Federation of Rugby of Ukraine | Developed for High-Tech Sports Analysis</p>
-    </footer>
-
-    <script>
-        // Логика перевода (UA/EN для примера, можно расширить)
-        const translations = {
-            uk: { heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', heroDesc: 'Високотехнологічна база даних та тактичний аналіз гри.' },
-            en: { heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', heroDesc: 'High-tech database and tactical game analysis.' }
-        };
-
-        function changeLanguage() {
-            const lang = document.getElementById('langSelector').value;
-            if (translations[lang]) {
-                document.getElementById('hero-title').innerHTML = translations[lang].heroTitle;
-                document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
-            }
-        }
-
-        // ТВОЙ СКАНЕР (ОСТАВЛЯЕМ)
-        const playersData = [
-            { id: "A-01", name: "Prop", x: 39, y: 46, w: 9, h: 38 },
-            { id: "A-02", name: "Captain", x: 49, y: 44, w: 10, h: 44 },
-            { id: "A-03", name: "Winger", x: 61, y: 47, w: 11, h: 36 }
-        ];
-
-        const overlay = document.getElementById('player-scanner-overlay');
-        function initScanner() {
-            overlay.innerHTML = '';
-            playersData.forEach(p => {
-                const zone = document.createElement('div');
-                zone.className = 'player-target';
-                zone.style.cssText = `left:${p.x}%; top:${p.y}%; width:${p.w}%; height:${p.h}%;`;
-                zone.innerHTML = `<div class="scan-line"></div><div class="player-tag">${p.name}</div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>`;
-                overlay.appendChild(zone);
-            });
-        }
-        initScanner();
-        window.addEventListener('resize', initScanner);
-    </script>
-</body>
-</html>
+                <button class

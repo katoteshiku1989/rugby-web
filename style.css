@@ -19,7 +19,7 @@ body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a
 .lang-select { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5px; border-radius: 4px; cursor: pointer; }
 .btn-ticket { background: var(--gold); color: #000 !important; padding: 8px 20px; border-radius: 4px; font-weight: bold; }
 
-/* HERO - ТВОЙ ФОН */
+/* HERO SECTION */
 .hero-tactical {
     height: 80vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('./rugby-action-bg.png') center/cover no-repeat;
@@ -45,28 +45,21 @@ body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a
 .bl { bottom:-2px; left:-2px; border-right:none; border-top:none; }
 .br { bottom:-2px; right:-2px; border-left:none; border-top:none; }
 
-/* CONTENT AREA */
+/* CONTENT */
 .content-portal { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
 .portal-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 60px; }
 
 .news-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
 .news-img { height: 400px; background-size: cover; background-position: center; }
 .news-info { padding: 40px; }
-.read-more { display: inline-block; margin-top: 20px; color: var(--main-blue); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--gold); }
 
 .side-bar { background: #fff; padding: 30px; border-radius: 12px; border-top: 8px solid var(--main-blue); box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
 .side-title { font-family: 'Orbitron'; margin-bottom: 25px; font-size: 1.1rem; }
 .match-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; }
 .score { color: var(--main-blue); background: #f0f7ff; padding: 2px 10px; border-radius: 4px; }
 
-/* INFO BOXES */
 .info-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .info-box { background: #fff; padding: 40px; text-align: center; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; }
-.info-box:hover { transform: translateY(-10px); border-color: var(--neon-blue); box-shadow: 0 20px 40px rgba(0,242,255,0.1); }
-.box-icon { font-size: 3rem; margin-bottom: 20px; }
-.btn-outline { margin-top: 25px; background: none; border: 2px solid var(--main-blue); padding: 10px 25px; cursor: pointer; font-weight: bold; border-radius: 6px; transition: 0.3s; }
-.btn-outline:hover { background: var(--main-blue); color: #fff; }
+.info-box:hover { transform: translateY(-10px); border-color: var(--neon-blue); }
 
-.footer { background: var(--main-blue); color: rgba(255,255,255,0.6); text-align: center; padding: 50px; margin-top: 100px; font-size: 0.9rem; }
-
-@media (max-width: 992px) { .portal-grid { grid-template-columns: 1fr; } }
+.footer { background: var(--main-blue); color: rgba(255,255,255,0.6); text-align: center; padding: 50px; margin-top: 100px; }
