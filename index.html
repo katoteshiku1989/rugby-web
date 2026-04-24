@@ -3,98 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKR Rugby Hi-Tech | Tactical Interface</title>
+    <title>UKR Rugby | Tactical Portal</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
+    <header class="main-header">
+        <div class="top-nav">
             <div class="logo">UKR<span>RUGBY</span></div>
-            <ul class="nav-links">
-                <li><a href="#" id="link-hist">ІСТОРІЯ</a></li>
-                <li><a href="#" id="link-games">ІГРИ</a></li>
-                <li><a href="#" id="link-media">МЕДІА</a></li>
-                <li><a href="#" class="btn-upload" id="link-upload">ЗАВАНТАЖИТИ</a></li>
-                <li class="lang-wrapper">
-                    <select id="language-select">
-                        <option value="uk">UA</option>
-                        <option value="en">EN</option>
-                        <option value="it">IT</option>
-                    </select>
-                </li>
-            </ul>
-        </nav>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">НОВИНИ</a></li>
+                    <li><a href="#">ТУРНІРИ</a></li>
+                    <li><a href="#">ЗБІРНА</a></li>
+                    <li><a href="#">ІСТОРІЯ</a></li>
+                    <li><a href="#" class="btn-ticket">КВИТКИ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero">
+    <section class="hero-tactical">
         <div id="player-scanner-overlay"></div>
-        <div class="hero-content">
-            <h1 id="hero-title">FUTURE OF <span class="highlight">UKRAINIAN</span> RUGBY</h1>
-            <p id="hero-subtitle">Система тактичного аналізу та глобальна база даних регбі.</p>
-            <div class="hero-btns">
-                <button class="btn-primary" id="btn-archive">АРХІВ МАТЧІВ</button>
-                <button class="btn-secondary" id="btn-more">ДЕТАЛІЗАЦІЯ</button>
+        <div class="hero-overlay-text">
+            <span class="live-indicator">TACTICAL SCANNER v1.0</span>
+            <h1>FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY</h1>
+            <p>Система аналізу в реальному часі та глобальна база даних.</p>
+        </div>
+    </section>
+
+    <section class="content-portal">
+        <div class="portal-grid">
+            <div class="main-news">
+                <div class="news-card big">
+                    <div class="news-img" style="background-image: url('rugby-hitech-bg.png');"></div>
+                    <div class="news-info">
+                        <span class="category">ANALYTICS</span>
+                        <h2>Підготовка до сезону 2026: цифрові методи тренувань</h2>
+                        <p>Використання AI для аналізу швидкості та витривалості гравців збірної.</p>
+                        <a href="#" class="read-more">ДЕТАЛЬНІШЕ →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-bar">
+                <h3 class="side-title">ОСТАННІ МАТЧІ</h3>
+                <div class="match-row">
+                    <span>UKR</span> <span class="score">24 : 12</span> <span>GEO</span>
+                </div>
+                <div class="match-row">
+                    <span>UKR</span> <span class="score">15 : 15</span> <span>ROM</span>
+                </div>
+                <a href="#" class="all-results">УСІ РЕЗУЛЬТАТИ</a>
+            </div>
+        </div>
+
+        <div class="info-sections">
+            <div class="info-box">
+                <div class="box-icon">🏛️</div>
+                <h3>ФЕДЕРАЦІЯ</h3>
+                <p>Президенти федерації та стратегічні плани розвитку до 2030 року.</p>
+                <button class="btn-outline">ПЕРЕГЛЯНУТИ</button>
+            </div>
+            <div class="info-box">
+                <div class="box-icon">🏆</div>
+                <h3>КУБКИ ТА ЧМ</h3>
+                <p>Історія Чемпіонатів Світу та шлях української збірної в кубках.</p>
+                <button class="btn-outline">АРХІВ ТУРНІРІВ</button>
+            </div>
+            <div class="info-box">
+                <div class="box-icon">📖</div>
+                <h3>ІСТОРІЯ РЕГБІ</h3>
+                <p>Від появи першого м'яча до епохи високотехнологічного спорту.</p>
+                <button class="btn-outline">ЧИТАТИ ІСТОРІЮ</button>
             </div>
         </div>
     </section>
 
-    <section class="database-section">
-        <h2 class="section-title">GLOBAL DATA CENTER</h2>
-        <div class="db-grid">
-            <div class="db-item">
-                <div class="db-icon">🏆</div>
-                <h3>ТУРНІРИ</h3>
-                <p>Суперліга, Кубок Виклику</p>
-            </div>
-            <div class="db-item">
-                <div class="db-icon">🌎</div>
-                <h3>ЧЕМПІОНАТИ СВІТУ</h3>
-                <p>Історія RWC з 1987 року</p>
-            </div>
-            <div class="db-item">
-                <div class="db-icon">🏛️</div>
-                <h3>ПРЕЗИДЕНТИ ФЕДЕРАЦІЙ</h3>
-                <p>Біографії та стратегії розвитку</p>
-            </div>
-            <div class="db-item">
-                <div class="db-icon">📜</div>
-                <h3>СВІТОВА ІСТОРІЯ</h3>
-                <p>Від Школи Регбі до сьогодні</p>
-            </div>
-            <div class="db-item">
-                <div class="db-icon">🏅</div>
-                <h3>КУБКИ</h3>
-                <p>Нагороди та рекорди команд</p>
-            </div>
-            <div class="db-item">
-                <div class="db-icon">📡</div>
-                <h3>ФЕДЕРАЦІЇ СВІТУ</h3>
-                <p>Контакти та мапа World Rugby</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="media-section">
-        <h2 class="section-title">АНАЛІТИЧНИЙ ЦЕНТР</h2>
-        <div class="video-placeholder">
-            <div class="play-icon">▶</div>
-            <p id="video-label">LIVE: UKRAINE VS ALL BLACKS</p>
-            <div class="video-controls">
-                <button class="control-btn">HEART RATE</button>
-                <button class="control-btn">SPEED MAP</button>
-                <button class="control-btn">VAR CHECK</button>
-            </div>
-        </div>
-    </section>
+    <footer class="footer">
+        <p>&copy; 2026 Ukrainian Rugby Federation. Developed by katoteshiku1989.</p>
+    </footer>
 
     <script>
-        // Координаты игроков (обновил под скан)
+        // Данные для твоего сканера на бэкграунде
         const playersData = [
-            { id: "A-01", name: "Striker", x: 39, y: 46, w: 9, h: 38 },
+            { id: "A-01", name: "Prop", x: 39, y: 46, w: 9, h: 38 },
             { id: "A-02", name: "Captain", x: 49, y: 44, w: 10, h: 44 },
-            { id: "A-03", name: "Support", x: 61, y: 47, w: 11, h: 36 }
+            { id: "A-03", name: "Winger", x: 61, y: 47, w: 11, h: 36 }
         ];
 
         const overlay = document.getElementById('player-scanner-overlay');
@@ -106,7 +102,7 @@
                 zone.style.cssText = `left:${p.x}%; top:${p.y}%; width:${p.w}%; height:${p.h}%;`;
                 zone.innerHTML = `
                     <div class="scan-line"></div>
-                    <div class="player-tag">${p.id} | ${p.name}</div>
+                    <div class="player-tag">${p.name}</div>
                     <div class="corner tl"></div><div class="corner tr"></div>
                     <div class="corner bl"></div><div class="corner br"></div>
                 `;
