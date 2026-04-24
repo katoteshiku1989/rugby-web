@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UKR Rugby Hi-Tech | Tactical Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">UKR<span>RUGBY</span></div>
+            <ul class="nav-links">
+                <li><a href="#" id="link-hist">ІСТОРІЯ</a></li>
+                <li><a href="#" id="link-games">ІГРИ</a></li>
+                <li><a href="#" id="link-media">МЕДІА</a></li>
+                <li><a href="#" class="btn-upload" id="link-upload">ЗАВАНТАЖИТИ</a></li>
+                <li class="lang-wrapper">
+                    <select id="language-select">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                        <option value="it">IT</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div id="player-scanner-overlay"></div>
+        <div class="hero-content">
+            <h1 id="hero-title">FUTURE OF <span class="highlight">UKRAINIAN</span> RUGBY</h1>
+            <p id="hero-subtitle">Система тактичного аналізу та глобальна база даних регбі.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" id="btn-archive">АРХІВ МАТЧІВ</button>
+                <button class="btn-secondary" id="btn-more">ДЕТАЛІЗАЦІЯ</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="database-section">
+        <h2 class="section-title">GLOBAL DATA CENTER</h2>
+        <div class="db-grid">
+            <div class="db-item">
+                <div class="db-icon">🏆</div>
+                <h3>ТУРНІРИ</h3>
+                <p>Суперліга, Кубок Виклику</p>
+            </div>
+            <div class="db-item">
+                <div class="db-icon">🌎</div>
+                <h3>ЧЕМПІОНАТИ СВІТУ</h3>
+                <p>Історія RWC з 1987 року</p>
+            </div>
+            <div class="db-item">
+                <div class="db-icon">🏛️</div>
+                <h3>ПРЕЗИДЕНТИ ФЕДЕРАЦІЙ</h3>
+                <p>Біографії та стратегії розвитку</p>
+            </div>
+            <div class="db-item">
+                <div class="db-icon">📜</div>
+                <h3>СВІТОВА ІСТОРІЯ</h3>
+                <p>Від Школи Регбі до сьогодні</p>
+            </div>
+            <div class="db-item">
+                <div class="db-icon">🏅</div>
+                <h3>КУБКИ</h3>
+                <p>Нагороди та рекорди команд</p>
+            </div>
+            <div class="db-item">
+                <div class="db-icon">📡</div>
+                <h3>ФЕДЕРАЦІЇ СВІТУ</h3>
+                <p>Контакти та мапа World Rugby</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="media-section">
+        <h2 class="section-title">АНАЛІТИЧНИЙ ЦЕНТР</h2>
+        <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            <p id="video-label">LIVE: UKRAINE VS ALL BLACKS</p>
+            <div class="video-controls">
+                <button class="control-btn">HEART RATE</button>
+                <button class="control-btn">SPEED MAP</button>
+                <button class="control-btn">VAR CHECK</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Координаты игроков (обновил под скан)
+        const playersData = [
+            { id: "A-01", name: "Striker", x: 39, y: 46, w: 9, h: 38 },
+            { id: "A-02", name: "Captain", x: 49, y: 44, w: 10, h: 44 },
+            { id: "A-03", name: "Support", x: 61, y: 47, w: 11, h: 36 }
+        ];
+
+        const overlay = document.getElementById('player-scanner-overlay');
+        function initScanner() {
+            overlay.innerHTML = '';
+            playersData.forEach(p => {
+                const zone = document.createElement('div');
+                zone.className = 'player-target';
+                zone.style.cssText = `left:${p.x}%; top:${p.y}%; width:${p.w}%; height:${p.h}%;`;
+                zone.innerHTML = `
+                    <div class="scan-line"></div>
+                    <div class="player-tag">${p.id} | ${p.name}</div>
+                    <div class="corner tl"></div><div class="corner tr"></div>
+                    <div class="corner bl"></div><div class="corner br"></div>
+                `;
+                overlay.appendChild(zone);
+            });
+        }
+        initScanner();
+        window.addEventListener('resize', initScanner);
+    </script>
+</body>
+</html>
