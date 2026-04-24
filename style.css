@@ -2,40 +2,61 @@
     --main-blue: #001d3d;
     --neon-blue: #00f2ff;
     --gold: #ffd700;
-    --light-bg: #f4f7f9;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+    --ua-blue: #005bbb;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a1a1a; overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; background: var(--white); color: #1a1a1a; overflow-x: hidden; }
 
-/* HEADER */
-.main-header { background: var(--main-blue); color: #fff; padding: 15px 50px; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
-.top-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-.logo { font-family: 'Orbitron'; font-size: 1.5rem; letter-spacing: 2px; font-weight: 700; }
+/* HEADER - CLEAN & PRO */
+.main-header { 
+    background: var(--main-blue); /* Оставил синий фон из первого варианта, он солиднее */
+    color: #fff; 
+    padding: 15px 50px; 
+    border-bottom: 3px solid var(--gold); 
+    position: sticky; top: 0; width: 100%; z-index: 1000;
+}
+.top-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
+.logo { font-family: 'Orbitron'; font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
 .logo span { color: var(--neon-blue); }
-.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
-.nav-links a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.lang-select { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5px; border-radius: 4px; cursor: pointer; outline: none; }
+.nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+.nav-links a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.lang-select { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5px; border-radius: 4px; cursor: pointer; }
 .btn-ticket { background: var(--gold); color: #000 !important; padding: 8px 18px; border-radius: 4px; font-weight: bold; }
 
-/* HERO - СДЕЛАЛИ СВЕТЛЕЕ */
+/* HERO - LARGE & IMPACTFUL */
 .hero-tactical {
     height: 85vh;
-    /* Изменили прозрачность с 0.5/0.8 на 0.15/0.35 — теперь картинка яркая */
     background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.35)), url('rugby-action-bg.png') center/cover no-repeat;
     position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.hero-overlay-text { text-align: center; color: #fff; z-index: 5; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-.hero-overlay-text h1 { font-family: 'Orbitron'; font-size: clamp(2rem, 6vw, 4rem); font-weight: 700; margin-bottom: 15px; }
+.hero-overlay-text { text-align: center; color: #fff; z-index: 5; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
+.hero-overlay-text h1 { 
+    font-family: 'Orbitron'; 
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    font-weight: 900; 
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
 .gold { color: var(--gold); }
 
-/* SCANNER UI - ИНТЕРАКТИВ */
+/* SCANNER UI - ТВОЯ ИНТЕРАКТИВНАЯ ЛОГИКА */
 #player-scanner-overlay { position: absolute; top:0; left:0; width:100%; height:100%; z-index: 10; pointer-events: none; }
-.player-target { position: absolute; border: 1px solid transparent; pointer-events: auto; transition: 0.3s; }
-.player-target:hover { border-color: var(--neon-blue); background: rgba(0, 242, 255, 0.15); box-shadow: 0 0 15px var(--neon-blue); }
+.player-target { position: absolute; border: 1.5px solid transparent; pointer-events: auto; transition: 0.3s; }
+.player-target:hover { border-color: var(--neon-blue); background: rgba(0, 242, 255, 0.15); box-shadow: 0 0 20px var(--neon-blue); }
 
-.player-tag { position: absolute; top: -35px; left: 0; background: var(--neon-blue); color: #000; font-size: 11px; padding: 2px 10px; opacity: 0; font-family: 'Orbitron'; font-weight: bold; transition: 0.3s; pointer-events: none; }
+.player-tag { position: absolute; top: -35px; left: 0; background: var(--neon-blue); color: #000; font-size: 11px; padding: 2px 10px; opacity: 0; font-family: 'Orbitron'; font-weight: bold; transition: 0.3s; }
 .player-target:hover .player-tag { opacity: 1; }
 
 .scan-line { position: absolute; top: 0; width: 100%; height: 2px; background: var(--neon-blue); opacity: 0; animation: scan 2s infinite linear; }
@@ -49,28 +70,35 @@ body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #1a
 .bl { bottom:-2px; left:-2px; border-right:none; border-top:none; }
 .br { bottom:-2px; right:-2px; border-left:none; border-top:none; }
 
-/* CONTENT */
-.content-portal { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-.portal-grid { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; margin-bottom: 60px; }
+/* CONTENT GRID - MASONRY / ENGLAND STYLE */
+.content-portal { max-width: 1400px; margin: 80px auto; padding: 0 40px; }
+.portal-grid { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; margin-bottom: 80px; }
 
-.news-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.news-img { height: 420px; background-size: cover; background-position: center; }
+.news-card { background: var(--gray-light); border-radius: 0; overflow: hidden; transition: 0.4s; }
+.news-card:hover { transform: translateY(-10px); }
+.news-img { height: 480px; background-size: cover; background-position: center; }
 .news-info { padding: 40px; }
-.read-more { display: inline-block; margin-top: 20px; color: var(--main-blue); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--gold); }
+.news-info h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 15px; line-height: 1.1; }
+.category { color: var(--ua-blue); font-weight: 900; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
 
-.side-bar { background: #fff; padding: 30px; border-radius: 12px; border-top: 8px solid var(--main-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.side-title { font-family: 'Orbitron'; margin-bottom: 25px; font-size: 1rem; color: var(--main-blue); }
-.match-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; font-size: 0.9rem; }
-.score { color: var(--main-blue); background: #f0f7ff; padding: 2px 10px; border-radius: 4px; }
+/* SIDEBAR - STANDINGS */
+.side-bar { background: var(--main-blue); color: #fff; padding: 40px; border-radius: 0; }
+.side-title { font-family: 'Orbitron'; margin-bottom: 30px; font-size: 1.2rem; color: var(--gold); border-bottom: 2px solid var(--gold); display: inline-block; }
+.match-row { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 700; font-size: 0.95rem; }
+.score { color: var(--gold); }
 
-.info-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.info-box { background: #fff; padding: 40px; text-align: center; border-radius: 12px; border: 1px solid #eee; transition: 0.3s; }
-.info-box:hover { transform: translateY(-8px); border-color: var(--neon-blue); box-shadow: 0 15px 30px rgba(0,242,255,0.08); }
-.box-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+/* FEDERATION INFO BLOCKS */
+.info-sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #eee; margin-top: 60px; border: 1px solid #eee; }
+.info-box { background: #fff; padding: 60px 40px; text-align: center; transition: 0.3s; }
+.info-box:hover { background: var(--gray-light); }
+.box-icon { font-size: 3rem; margin-bottom: 25px; display: block; }
 
-.btn-outline { margin-top: 20px; background: none; border: 2px solid var(--main-blue); padding: 8px 25px; cursor: pointer; font-weight: bold; border-radius: 4px; transition: 0.3s; }
+.btn-outline { margin-top: 25px; background: none; border: 2px solid var(--main-blue); padding: 10px 30px; cursor: pointer; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
 .btn-outline:hover { background: var(--main-blue); color: #fff; }
 
-.footer { background: var(--main-blue); color: rgba(255,255,255,0.5); text-align: center; padding: 60px; margin-top: 100px; font-size: 0.8rem; letter-spacing: 1px; }
+.footer { background: #000; color: rgba(255,255,255,0.5); text-align: center; padding: 80px; margin-top: 100px; font-size: 0.8rem; letter-spacing: 2px; }
 
-@media (max-width: 992px) { .portal-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1024px) {
+    .portal-grid, .info-sections { grid-template-columns: 1fr; }
+    .news-card { grid-column: span 1; }
+}
