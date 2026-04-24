@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKR Rugby | Global Analytics Portal</title>
+    <title>UKR Rugby | Ultimate Tactical Portal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -14,13 +14,19 @@
             <div class="logo">UKR<span>RUGBY</span></div>
             <nav>
                 <ul class="nav-links">
+                    <li><a href="#news">НОВИНИ</a></li>
+                    <li><a href="#federation">ФЕДЕРАЦІЯ</a></li>
+                    <li><a href="#history">ІСТОРІЯ</a></li>
                     <li class="lang-wrapper">
                         <select class="lang-select" id="langSelector" onchange="changeLanguage()">
                             <option value="uk">UA</option>
                             <option value="en">EN</option>
+                            <option value="it">IT</option>
+                            <option value="es">ES</option>
+                            <option value="fr">FR</option>
                         </select>
                     </li>
-                    <li><a href="#" class="btn-ticket" id="btn-tickets">КВИТКИ</a></li>
+                    <li><a href="#" class="btn-ticket">КВИТКИ</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,113 +36,76 @@
         <div id="player-scanner-overlay"></div>
         <div class="hero-overlay-text">
             <h1 id="hero-title">FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY</h1>
-            <p id="hero-desc">Система аналізу в реальному часі та глобальна база даних.</p>
+            <p id="hero-desc">Високотехнологічна база даних та тактичний аналіз гри.</p>
         </div>
     </section>
 
-    <section class="content-portal">
-        <div class="portal-grid">
+    <div class="content-portal">
+        <section id="news" class="portal-grid">
             <div class="main-news">
                 <div class="news-card big">
                     <div class="news-img" style="background-image: url('./rugby-hitech-bg.png');"></div>
                     <div class="news-info">
-                        <span class="category">TOP CLUB</span>
-                        <h2 id="news-title">Харківський «Олимп» — гегемон українського регби</h2>
-                        <p id="news-text">Найнатулованіший клуб країни, що ставав чемпіоном України понад 15 разів поспіль під керівництвом Ярослава Перегуди.</p>
-                        <a href="#" class="read-more" id="news-more">ДЕТАЛЬНІШЕ →</a>
+                        <span class="category">TOP CLUB ANALYSIS</span>
+                        <h2 id="news-title">Харківський «Олімп» — 15 років домінування</h2>
+                        <p id="news-text">Аналіз стратегії найтитулованішого клубу України під керівництвом Ярослава Перегуди.</p>
+                        <a href="#" class="read-more">ЧИТАТИ ДАЛІ →</a>
                     </div>
                 </div>
             </div>
 
             <div class="side-bar">
-                <h3 class="side-title" id="side-title">ЧЕМПІОНАТ (СУПЕРЛІГА)</h3>
-                <div class="match-row"><span>Олімп (Харків)</span> <span class="score">🏆</span></div>
-                <div class="match-row"><span>КРЕДО-1963 (Одеса)</span> <span class="score">🥈</span></div>
-                <div class="match-row"><span>Поділля (Хмельницький)</span> <span class="score">🥉</span></div>
-                <div class="match-row"><span>Сокіл (Львів)</span> <span class="score">PTS</span></div>
+                <h3 class="side-title">SUPER LEAGUE UKRAINE</h3>
+                <div class="match-row"><span>Олімп (Харків)</span> <span class="score">🏆 1st</span></div>
+                <div class="match-row"><span>КРЕДО-1963 (Одеса)</span> <span class="score">🥈 2nd</span></div>
+                <div class="match-row"><span>Поділля (Хмельницький)</span> <span class="score">🥉 3rd</span></div>
+                <div class="match-row"><span>Сокіл (Львів)</span> <span class="score">4th</span></div>
+                <div class="match-row"><span>РК Ребелс (Київ)</span> <span class="score">5th</span></div>
             </div>
-        </div>
+        </section>
 
-        <div class="info-sections">
+        <section id="federation" class="info-sections">
             <div class="info-box">
                 <div class="box-icon">🏛️</div>
-                <h3 id="box1-title">ФЕДЕРАЦІЯ</h3>
-                <p id="box1-text">ФРУ заснована у 1991 році. Президенти: Г. Корольов, О. Грабазєй, Г. Джангирян, В. Бабич, Є. Баженков.</p>
-                <button class="btn-outline">DETAILS</button>
+                <h3>ФЕДЕРАЦІЯ (ФРУ)</h3>
+                <p>Заснована у 1991. Президенти: Г. Корольов, О. Грабазєй, Г. Джангирян, В. Бабич, Є. Баженков.</p>
+                <button class="btn-outline">СТРАТЕГІЯ 2030</button>
             </div>
             <div class="info-box">
                 <div class="box-icon">🏆</div>
-                <h3 id="box2-title">ДОСЯГНЕННЯ</h3>
-                <p id="box2-text">Збірна України традиційно змагається у Trophy Division (Чемпіонат Європи), борючись за вихід у вищий дивізіон.</p>
-                <button class="btn-outline">ARCHIVE</button>
+                <h3>ТУРНІРИ ТА КУБКИ</h3>
+                <p>Збірна України у Trophy Division. Історія виступів на Чемпіонатах Європи та світу.</p>
+                <button class="btn-outline">АРХІВ МАТЧІВ</button>
             </div>
-            <div class="info-box">
+            <div id="history" class="info-box">
                 <div class="box-icon">📖</div>
-                <h3 id="box3-title">ІСТОРІЯ</h3>
-                <p id="box3-text">Офіційна дата народження українського регбі — 1963 рік, коли відбулися перші матчі в Києві та Дніпрі.</p>
-                <button class="btn-outline">READ</button>
+                <h3>ІСТОРІЯ РЕГБІ</h3>
+                <p>З 1963 року. Перші команди в Києві, Дніпрі та Одесі. Шлях від аматорів до професіоналів.</p>
+                <button class="btn-outline">ДІЗНАТИСЬ БІЛЬШЕ</button>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer class="footer">
-        <p>&copy; 2026 Federation of Rugby of Ukraine. Data-driven Analytics Portal.</p>
+        <p>&copy; 2026 Federation of Rugby of Ukraine | Developed for High-Tech Sports Analysis</p>
     </footer>
 
     <script>
+        // Логика перевода (UA/EN для примера, можно расширить)
         const translations = {
-            uk: {
-                heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY',
-                heroDesc: 'Система аналізу в реальному часі та глобальна база даних.',
-                newsTitle: 'Харківський «Олимп» — гегемон українського регбі',
-                newsText: 'Найнатулованіший клуб країни, що ставав чемпіоном України понад 15 разів поспіль.',
-                newsMore: 'ДЕТАЛЬНІШЕ →',
-                sideTitle: 'ЧЕМПІОНАТ (СУПЕРЛІГА)',
-                box1Title: 'ФЕДЕРАЦІЯ',
-                box1Text: 'ФРУ заснована у 1991 році. Президенти: Г. Корольов, О. Грабазєй, Г. Джангирян, В. Бабич, Є. Баженков.',
-                box2Title: 'ДОСЯГНЕННЯ',
-                box2Text: 'Збірна України традиційно змагається у Trophy Division, борючись за вихід у вищий дивізіон.',
-                box3Title: 'ІСТОРІЯ',
-                box3Text: 'Офіційна дата народження українського регбі — 1963 рік, перші матчі в Києві та Дніпрі.',
-                tickets: 'КВИТКИ'
-            },
-            en: {
-                heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY',
-                heroDesc: 'Real-time analysis system and global database.',
-                newsTitle: 'RC Olymp (Kharkiv) — Ukrainian Rugby Giant',
-                newsText: 'The most decorated club in the country, winning the title over 15 times in a row.',
-                newsMore: 'READ MORE →',
-                sideTitle: 'CHAMPIONSHIP (SUPER LEAGUE)',
-                box1Title: 'FEDERATION',
-                box1Text: 'FRU founded in 1991. Presidents: G. Korolyov, O. Grabazey, G. Dzhangiryan, V. Babych, E. Bazhenkov.',
-                box2Title: 'ACHIEVEMENTS',
-                box2Text: 'Ukraine national team competes in the Rugby Europe Trophy division.',
-                box3Title: 'HISTORY',
-                box3Text: 'Official birth of Ukrainian rugby — 1963, with first matches in Kyiv and Dnipro.',
-                tickets: 'TICKETS'
-            }
+            uk: { heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', heroDesc: 'Високотехнологічна база даних та тактичний аналіз гри.' },
+            en: { heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', heroDesc: 'High-tech database and tactical game analysis.' }
         };
 
         function changeLanguage() {
             const lang = document.getElementById('langSelector').value;
-            const t = translations[lang];
-            
-            document.getElementById('hero-title').innerHTML = t.heroTitle;
-            document.getElementById('hero-desc').innerText = t.heroDesc;
-            document.getElementById('news-title').innerText = t.newsTitle;
-            document.getElementById('news-text').innerText = t.newsText;
-            document.getElementById('news-more').innerText = t.newsMore;
-            document.getElementById('side-title').innerText = t.sideTitle;
-            document.getElementById('box1-title').innerText = t.box1Title;
-            document.getElementById('box1-text').innerText = t.box1Text;
-            document.getElementById('box2-title').innerText = t.box2Title;
-            document.getElementById('box2-text').innerText = t.box2Text;
-            document.getElementById('box3-title').innerText = t.box3Title;
-            document.getElementById('box3-text').innerText = t.box3Text;
-            document.getElementById('btn-tickets').innerText = t.tickets;
+            if (translations[lang]) {
+                document.getElementById('hero-title').innerHTML = translations[lang].heroTitle;
+                document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
+            }
         }
 
-        // Scanner Logic
+        // ТВОЙ СКАНЕР (ОСТАВЛЯЕМ)
         const playersData = [
             { id: "A-01", name: "Prop", x: 39, y: 46, w: 9, h: 38 },
             { id: "A-02", name: "Captain", x: 49, y: 44, w: 10, h: 44 },
@@ -155,6 +124,7 @@
             });
         }
         initScanner();
+        window.addEventListener('resize', initScanner);
     </script>
 </body>
 </html>
