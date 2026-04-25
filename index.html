@@ -1,145 +1,851 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKR Rugby | Tactical Portal</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ============================================================
+   UKRAINE RUGBY — REDESIGN 2026
+   Inspired by England Rugby structure | By katoteshiku1989
+   ============================================================ */
 
-    <header class="main-header">
-        <div class="top-nav">
-            <div class="logo">UKR<span>RUGBY</span></div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#news">НОВИНИ</a></li>
-                    <li><a href="#federation">КЕРІВНИЦТВО</a></li>
-                    <li><a href="#history">ІСТОРІЯ</a></li>
-                    <li class="lang-wrapper">
-                        <select class="lang-select" id="langSelector" onchange="changeLanguage()">
-                            <option value="uk">UA</option>
-                            <option value="en">EN</option>
-                        </select>
-                    </li>
-                    <li><a href="#" class="btn-ticket">КВИТКИ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+:root {
+    --blue-deep:   #001d3d;
+    --blue-main:   #003580;
+    --ua-blue:     #005bbb;
+    --ua-yellow:   #ffd700;
+    --neon:        #00f2ff;
+    --white:       #ffffff;
+    --off-white:   #f4f5f7;
+    --gray:        #8a8f9d;
+    --dark:        #0d0d0d;
+    --red:         #c8102e;
+    --font-head:   'Barlow Condensed', sans-serif;
+    --font-body:   'Barlow', sans-serif;
+    --radius:      4px;
+    --shadow:      0 8px 40px rgba(0,0,0,0.12);
+    --transition:  0.25s ease;
+}
 
-    <section class="hero-tactical">
-        <div id="player-scanner-overlay"></div>
-        <div class="hero-overlay-text">
-            <h1 id="hero-title">FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY</h1>
-            <p id="hero-desc">Високотехнологічна база даних та тактичний аналіз гри.</p>
-        </div>
-    </section>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--dark); overflow-x: hidden; }
 
-    <div class="content-portal">
-        <section id="news" class="portal-grid">
-            <div class="main-news">
-                <div class="news-card big">
-                    <div class="news-img" style="background-image: url('./rugby-hitech-bg.png');"></div>
-                    <div class="news-info">
-                        <span class="category">TOP CLUB ANALYSIS</span>
-                        <h2 id="news-title">Харківський «Олімп» — 15 років домінування</h2>
-                        <p id="news-text">Аналіз стратегії найтитулованішого клубу України під керівництвом Ярослава Перегуди.</p>
-                        <a href="#" class="read-more" style="color: var(--main-blue); font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--gold);">ЧИТАТИ ДАЛІ →</a>
-                    </div>
-                </div>
-            </div>
+a { text-decoration: none; color: inherit; }
 
-            <div class="side-bar">
-                <h3 class="side-title">SUPER LEAGUE</h3>
-                <div class="match-row"><span>Олімп (Харків)</span> <span class="score">🏆 1st</span></div>
-                <div class="match-row"><span>КРЕДО-1963 (Одеса)</span> <span class="score">🥈 2nd</span></div>
-                <div class="match-row"><span>Поділля (Хмельницький)</span> <span class="score">🥉 3rd</span></div>
-                <div class="match-row"><span>Сокіл (Львів)</span> <span class="score">4th</span></div>
-                <div class="match-row"><span>РК Ребелс (Київ)</span> <span class="score">5th</span></div>
-            </div>
-        </section>
+/* ===================================================
+   TOP BAR
+   =================================================== */
+.top-bar {
+    background: var(--blue-deep);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.top-bar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-bar-links { display: flex; gap: 24px; align-items: center; }
+.top-bar-links a { color: rgba(255,255,255,0.6); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: color var(--transition); }
+.top-bar-links a:hover { color: var(--ua-yellow); }
+.lang-select {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: var(--radius);
+    font-size: 0.7rem;
+    cursor: pointer;
+}
 
-        <section id="federation" class="info-sections">
-            <div class="info-box">
-                <div class="box-icon">🏛️</div>
-                <h3>НАЦІОНАЛЬНИЙ РІВЕНЬ</h3>
-                <p><b>УАР:</b> Роман Бихов (Президент), Кирило Буданов (Почесний президент).</p>
-                <p><b>ФРУ:</b> Євген Баженков (Президент).</p>
-                <button class="btn-outline">СТРАТЕГІЯ 2030</button>
-            </div>
-            
-            <div class="info-box" style="text-align: left;">
-                <div class="box-icon" style="text-align: center;">🗺️</div>
-                <h3 style="text-align: center;">РЕГІОНАЛЬНІ ЛІДЕРИ</h3>
-                <ul style="list-style: none; font-size: 0.9rem; color: #444; line-height: 1.8; margin-top: 15px;">
-                    <li>🏙️ <b>Київ (Місто):</b> Олександр Потапенко</li>
-                    <li>🗺️ <b>Київська обл.:</b> Максим Бобров</li>
-                    <li>⚓ <b>Одеса:</b> Олег Етнарович</li>
-                    <li>🚜 <b>Харків:</b> Ігор Панін</li>
-                    <li>🦁 <b>Львів:</b> Петро Адамик</li>
-                </ul>
-                <div style="text-align: center;"><button class="btn-outline">СТРУКТУРА</button></div>
-            </div>
+/* ===================================================
+   MAIN HEADER
+   =================================================== */
+.main-header {
+    background: var(--blue-deep);
+    border-bottom: 3px solid var(--ua-yellow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow var(--transition);
+}
+.main-header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
 
-            <div id="history" class="info-box">
-                <div class="box-icon">📖</div>
-                <h3>ІСТОРІЯ РЕГБІ</h3>
-                <p>Шлях розвитку з 1963 року. Від перших матчів у Києві до сучасних арен.</p>
-                <button class="btn-outline">АРХІВ</button>
-            </div>
-        </section>
-    </div>
+/* Logo */
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-shield {
+    width: 44px;
+    height: 44px;
+    background: var(--ua-yellow);
+    clip-path: polygon(50% 0%, 100% 15%, 100% 70%, 50% 100%, 0% 70%, 0% 15%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.logo-trident { color: var(--blue-deep); }
+.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-ukr { font-family: var(--font-head); font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 3px; }
+.logo-rugby { font-family: var(--font-head); font-size: 1.6rem; font-weight: 900; color: #fff; letter-spacing: 1px; }
+.footer-logo .logo-rugby { font-size: 1.4rem; }
 
-    <footer class="footer">
-        <p>&copy; 2026 Federation of Rugby of Ukraine | Developed by katoteshiku1989</p>
-    </footer>
+/* Nav */
+.main-nav { flex: 1; }
+.nav-list { list-style: none; display: flex; gap: 4px; align-items: center; }
+.nav-item { position: relative; }
+.nav-link {
+    display: block;
+    padding: 8px 14px;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color var(--transition);
+    white-space: nowrap;
+}
+.nav-link:hover, .nav-item.active .nav-link { color: var(--ua-yellow); }
+.arrow { font-size: 0.6rem; opacity: 0.6; }
 
-    <script>
-        const translations = {
-            uk: { 
-                heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', 
-                heroDesc: 'Високотехнологічна база даних та тактичний аналіз гри.' 
-            },
-            en: { 
-                heroTitle: 'FUTURE OF <span class="gold">UKRAINIAN</span> RUGBY', 
-                heroDesc: 'High-tech database and tactical game analysis.' 
-            }
-        };
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    min-width: 200px;
+    background: var(--blue-deep);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid var(--ua-yellow);
+    padding: 8px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all var(--transition);
+    z-index: 100;
+}
+.nav-item.active .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition);
+}
+.dropdown a:hover { color: var(--ua-yellow); padding-left: 28px; }
 
-        function changeLanguage() {
-            const lang = document.getElementById('langSelector').value;
-            if (translations[lang]) {
-                document.getElementById('hero-title').innerHTML = translations[lang].heroTitle;
-                document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
-            }
-        }
+/* Actions */
+.header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.btn-tickets {
+    background: var(--ua-yellow);
+    color: var(--blue-deep);
+    padding: 9px 22px;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+.btn-tickets:hover { background: #e6c200; transform: translateY(-1px); }
+.burger { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-        const playersData = [
-            { id: "A-01", name: "Prop", x: 39, y: 46, w: 9, h: 38 },
-            { id: "A-02", name: "Captain", x: 49, y: 44, w: 10, h: 44 },
-            { id: "A-03", name: "Winger", x: 61, y: 47, w: 11, h: 36 }
-        ];
+/* ===================================================
+   HERO
+   =================================================== */
+.hero {
+    position: relative;
+    height: 88vh;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center 20%;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+}
+.hero:hover .hero-bg { transform: scale(1); }
+.hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 5, 20, 0.82) 0%,
+        rgba(0, 15, 50, 0.6) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+}
 
-        const overlay = document.getElementById('player-scanner-overlay');
-        function initScanner() {
-            overlay.innerHTML = '';
-            playersData.forEach(p => {
-                const zone = document.createElement('div');
-                zone.className = 'player-target';
-                zone.style.cssText = `left:${p.x}%; top:${p.y}%; width:${p.w}%; height:${p.h}%; z-index: 10;`;
-                zone.innerHTML = `
-                    <div class="scan-line"></div>
-                    <div class="player-tag">${p.name}</div>
-                    <div class="corner tl"></div><div class="corner tr"></div>
-                    <div class="corner bl"></div><div class="corner br"></div>
-                `;
-                overlay.appendChild(zone);
-            });
-        }
-        initScanner();
-        window.addEventListener('resize', initScanner);
-    </script>
-</body>
-</html>
+#scanner-overlay { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 40px;
+}
+.hero-badge {
+    display: inline-block;
+    border: 1.5px solid var(--ua-yellow);
+    color: var(--ua-yellow);
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.hero-title {
+    font-family: var(--font-head);
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.88;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+.hero-accent { color: var(--ua-yellow); }
+.hero-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+    background: var(--ua-yellow);
+    color: var(--blue-deep);
+    padding: 14px 32px;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    display: inline-block;
+}
+.btn-primary:hover { background: #e6c200; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,215,0,0.3); }
+.btn-ghost {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 13px 32px;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--ua-yellow); color: var(--ua-yellow); }
+
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* Scanner elements */
+.player-target { position: absolute; border: 1.5px solid transparent; pointer-events: auto; transition: 0.3s; }
+.player-target:hover { border-color: var(--neon); background: rgba(0,242,255,0.12); box-shadow: 0 0 25px rgba(0,242,255,0.4); }
+.player-tag { position: absolute; top: -32px; left: 0; background: var(--neon); color: #000; font-size: 10px; padding: 3px 10px; opacity: 0; font-family: var(--font-head); font-weight: 700; letter-spacing: 1px; transition: 0.3s; white-space: nowrap; }
+.player-target:hover .player-tag { opacity: 1; }
+.scan-line { position: absolute; top: 0; width: 100%; height: 2px; background: var(--neon); opacity: 0; animation: scan 2s infinite linear; }
+.player-target:hover .scan-line { opacity: 0.8; }
+@keyframes scan { from { top: 0; } to { top: 100%; } }
+.corner { position: absolute; width: 10px; height: 10px; border: 2px solid var(--neon); opacity: 0; transition: 0.3s; }
+.player-target:hover .corner { opacity: 1; }
+.tl { top:-2px; left:-2px; border-right:none; border-bottom:none; }
+.tr { top:-2px; right:-2px; border-left:none; border-bottom:none; }
+.bl { bottom:-2px; left:-2px; border-right:none; border-top:none; }
+.br { bottom:-2px; right:-2px; border-left:none; border-top:none; }
+
+/* ===================================================
+   MATCH TICKER
+   =================================================== */
+.match-ticker {
+    background: var(--ua-yellow);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+}
+.ticker-label {
+    background: var(--blue-deep);
+    color: var(--ua-yellow);
+    padding: 14px 24px;
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+.ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 24px;
+}
+.ticker-track::-webkit-scrollbar { display: none; }
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--blue-deep);
+}
+.ticker-item.live { background: rgba(0,29,61,0.08); border-radius: var(--radius); }
+.ticker-sep { color: rgba(0,29,61,0.3); font-size: 1.2rem; padding: 0 8px; }
+.t-date { font-size: 0.7rem; opacity: 0.6; font-weight: 700; letter-spacing: 1px; }
+.t-score { font-family: var(--font-head); font-size: 1rem; font-weight: 900; }
+.t-score.win { color: #006600; }
+.live-score { color: var(--red); animation: pulse 1.2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.live-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; animation: pulse 1s infinite; flex-shrink: 0; }
+.upcoming { color: var(--ua-blue); font-size: 0.75rem; }
+.ticker-all {
+    background: var(--blue-deep);
+    color: var(--ua-yellow);
+    padding: 14px 24px;
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+    transition: background var(--transition);
+}
+.ticker-all:hover { background: #002d5c; }
+
+/* ===================================================
+   SECTION HEADERS
+   =================================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+}
+.section-header.centered { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.section-title {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--blue-deep);
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+}
+.section-link {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--ua-blue);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--ua-yellow);
+    padding-bottom: 2px;
+    transition: color var(--transition);
+}
+.section-link:hover { color: var(--blue-deep); }
+.section-sub { color: var(--gray); font-size: 0.95rem; }
+
+/* ===================================================
+   FEATURED NEWS
+   =================================================== */
+.featured-news {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+}
+.news-hero-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+.news-big-card { border-radius: var(--radius); overflow: hidden; }
+.news-big-img {
+    height: 540px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+.news-big-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,10,30,0.92) 0%, rgba(0,10,30,0.3) 60%, transparent 100%);
+}
+.news-big-content { position: relative; z-index: 2; padding: 40px; }
+.news-tag {
+    display: inline-block;
+    background: var(--ua-blue);
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+.news-tag.red { background: var(--red); }
+.news-tag.gold { background: var(--ua-yellow); color: var(--blue-deep); }
+.news-big-title {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 14px;
+}
+.news-big-desc { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
+.btn-readmore {
+    display: inline-block;
+    border: 2px solid var(--ua-yellow);
+    color: var(--ua-yellow);
+    padding: 10px 24px;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all var(--transition);
+}
+.btn-readmore:hover { background: var(--ua-yellow); color: var(--blue-deep); }
+
+.news-side-cards { display: flex; flex-direction: column; gap: 16px; }
+.news-card-sm {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--off-white);
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: pointer;
+}
+.news-card-sm:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+.nc-img { height: 100%; min-height: 120px; }
+.nc-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.nc-body h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; line-height: 1.2; color: var(--blue-deep); }
+.nc-date { font-size: 0.7rem; color: var(--gray); font-weight: 700; letter-spacing: 1px; margin-top: auto; }
+
+/* ===================================================
+   LEAGUE TABLE + SCHEDULE
+   =================================================== */
+.league-section {
+    background: var(--off-white);
+    padding: 80px 40px;
+}
+.league-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+.league-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+.league-table thead tr {
+    background: var(--blue-deep);
+}
+.league-table th {
+    color: rgba(255,255,255,0.7);
+    padding: 12px 14px;
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.league-table th:first-child { text-align: left; }
+.league-table th:nth-child(2) { text-align: left; }
+.league-table td {
+    padding: 13px 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-weight: 600;
+}
+.league-table td:nth-child(2) { text-align: left; }
+.league-table tr.pos-1 { background: rgba(255,215,0,0.06); }
+.league-table tr.pos-last { background: rgba(200,16,46,0.04); }
+.league-table tbody tr:hover { background: rgba(0,53,128,0.06); }
+
+.pos-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    font-size: 0.75rem; font-weight: 900; font-family: var(--font-head);
+    background: var(--off-white); color: var(--gray);
+}
+.gold-bg { background: var(--ua-yellow); color: var(--blue-deep); }
+.silver-bg { background: #C0C0C0; color: #444; }
+.bronze-bg { background: #CD7F32; color: #fff; }
+.red-bg { background: rgba(200,16,46,0.15); color: var(--red); }
+
+.club-name { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--blue-deep); }
+.club-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* Upcoming Matches */
+.match-cards { display: flex; flex-direction: column; gap: 16px; }
+.match-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 24px;
+    border-left: 4px solid var(--ua-yellow);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition);
+}
+.match-card:hover { transform: translateY(-2px); }
+.mc-date { font-size: 0.7rem; font-weight: 900; color: var(--ua-blue); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+.mc-teams { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.mc-team { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 700; color: var(--blue-deep); text-align: center; }
+.mc-vs { font-family: var(--font-head); font-size: 1.4rem; font-weight: 900; color: var(--gray); }
+.mc-badge {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-weight: 900; font-size: 0.85rem; color: #fff;
+}
+.blue-badge { background: var(--ua-blue); }
+.red-badge { background: var(--red); }
+.gold-badge { background: #b8860b; }
+.teal-badge { background: #2a9d8f; }
+.navy-badge { background: var(--blue-deep); }
+.crimson-badge { background: #c8102e; }
+.mc-venue { font-size: 0.75rem; color: var(--gray); margin-bottom: 16px; }
+.btn-ticket-sm {
+    display: inline-block;
+    background: var(--blue-deep);
+    color: var(--ua-yellow);
+    padding: 8px 20px;
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+.btn-ticket-sm:hover { background: var(--ua-blue); }
+
+/* ===================================================
+   TEAM SPOTLIGHT
+   =================================================== */
+.team-spotlight {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.spotlight-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center 30%;
+}
+.spotlight-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(0,5,30,0.93) 45%, rgba(0,0,0,0.5) 100%);
+}
+.spotlight-content {
+    position: relative; z-index: 5;
+    max-width: 1400px; width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.spotlight-label {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--ua-yellow);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.spotlight-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.gold-text { color: var(--ua-yellow); }
+.spotlight-text p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.7; margin-bottom: 36px; max-width: 440px; }
+.spotlight-stats {
+    display: flex; gap: 40px; margin-bottom: 36px;
+}
+.stat-item { display: flex; flex-direction: column; gap: 4px; }
+.stat-num { font-family: var(--font-head); font-size: 2.6rem; font-weight: 900; color: var(--ua-yellow); line-height: 1; }
+.stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+.scanner-wrap { position: relative; width: 100%; height: 360px; }
+
+/* ===================================================
+   FEDERATION
+   =================================================== */
+.federation {
+    padding: 100px 40px;
+    background: var(--white);
+}
+.fed-inner { max-width: 1400px; margin: 0 auto; }
+.fed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #e8e8e8;
+    border: 2px solid #e8e8e8;
+    margin-top: 50px;
+}
+.fed-card {
+    background: var(--white);
+    padding: 56px 40px;
+    text-align: center;
+    transition: background var(--transition);
+}
+.fed-card:hover { background: var(--off-white); }
+.fed-icon { font-size: 3rem; margin-bottom: 24px; display: block; }
+.fed-card h3 {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--blue-deep);
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--ua-yellow);
+    padding-bottom: 14px;
+}
+.fed-leaders { text-align: left; margin-bottom: 28px; }
+.leader-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.leader-role { font-size: 0.7rem; color: var(--gray); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.leader-name { font-size: 0.95rem; font-weight: 700; color: var(--blue-deep); }
+
+.region-list { list-style: none; text-align: left; margin-bottom: 28px; }
+.region-list li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.85rem;
+}
+.region-icon { font-size: 1rem; flex-shrink: 0; }
+.region-name { flex: 1; font-weight: 600; color: var(--blue-deep); }
+.region-person { color: var(--gray); font-size: 0.8rem; font-weight: 700; }
+
+.timeline { text-align: left; margin-bottom: 28px; }
+.tl-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.tl-year { font-family: var(--font-head); font-size: 1rem; font-weight: 900; color: var(--ua-yellow); background: var(--blue-deep); padding: 2px 8px; min-width: 52px; text-align: center; flex-shrink: 0; }
+.tl-event { font-size: 0.85rem; font-weight: 600; color: var(--blue-deep); padding-top: 4px; }
+
+.btn-outline {
+    background: none;
+    border: 2px solid var(--blue-deep);
+    color: var(--blue-deep);
+    padding: 10px 28px;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition);
+    border-radius: var(--radius);
+}
+.btn-outline:hover { background: var(--blue-deep); color: #fff; }
+
+/* ===================================================
+   PARTNERS
+   =================================================== */
+.partners {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 32px 40px;
+    background: var(--off-white);
+}
+.partners-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+}
+.partners-label {
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--gray);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+.partners-logos { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+.partner-logo {
+    padding: 10px 24px;
+    border: 1.5px solid #ddd;
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gray);
+    letter-spacing: 1px;
+    transition: all var(--transition);
+    border-radius: var(--radius);
+}
+.partner-logo:hover { border-color: var(--blue-deep); color: var(--blue-deep); }
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+.footer { background: var(--blue-deep); color: rgba(255,255,255,0.7); padding: 80px 40px 0; }
+.footer-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr repeat(4, 1fr);
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand { display: flex; flex-direction: column; gap: 20px; }
+.footer-tagline { font-size: 0.82rem; line-height: 1.6; color: rgba(255,255,255,0.5); }
+.social-links { display: flex; gap: 10px; }
+.social-btn {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.65rem;
+    font-weight: 900;
+    font-family: var(--font-head);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+.social-btn:hover { background: var(--ua-yellow); color: var(--blue-deep); border-color: var(--ua-yellow); }
+
+.footer-col h4 {
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: var(--ua-yellow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,215,0,0.2);
+}
+.footer-col { display: flex; flex-direction: column; gap: 0; }
+.footer-col a {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--ua-yellow); padding-left: 8px; }
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer-bottom div { display: flex; gap: 20px; }
+.footer-bottom a { color: rgba(255,255,255,0.35); transition: color var(--transition); }
+.footer-bottom a:hover { color: var(--ua-yellow); }
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
+@media (max-width: 1200px) {
+    .news-hero-grid { grid-template-columns: 1fr; }
+    .news-big-img { height: 420px; }
+    .news-side-cards { flex-direction: row; flex-wrap: wrap; }
+    .news-card-sm { flex: 1; min-width: 240px; }
+    .league-inner { grid-template-columns: 1fr; }
+    .spotlight-content { grid-template-columns: 1fr; }
+    .scanner-wrap { display: none; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .top-bar { display: none; }
+    .header-inner { padding: 0 20px; gap: 20px; }
+    .main-nav { display: none; }
+    .main-nav.open { display: flex; position: fixed; top: 72px; left: 0; right: 0; background: var(--blue-deep); padding: 20px; z-index: 999; flex-direction: column; }
+    .nav-list { flex-direction: column; gap: 0; }
+    .nav-link { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .burger { display: block; }
+    .hero-content { padding: 0 20px; }
+    .hero-title { font-size: clamp(2.4rem, 10vw, 4rem); }
+    .featured-news, .federation { padding: 50px 20px; }
+    .league-section { padding: 50px 20px; }
+    .fed-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 30px; padding: 40px 0; }
+    .footer { padding: 40px 20px 0; }
+    .spotlight-content { padding: 60px 20px; }
+    .match-ticker { flex-wrap: wrap; }
+    .spotlight-stats { gap: 24px; }
+}
